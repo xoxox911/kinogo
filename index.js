@@ -11,6 +11,7 @@ require('devextreme/ui/autocomplete');
 
 $(function(){
     var formWidget = $("#form").dxForm({
+        formData: formData,
         readOnly: false,
         showColonAfterLabel: true,
         showValidationSummary: true,
@@ -138,10 +139,21 @@ $(function(){
         paging: {
             enabled: false
         },
+        grouping: {
+            autoExpandAll: true
+        },
         searchPanel: {
             visible: true
         },
-        columns: ["Название", "Жанр", "Дата выхода", "Бюджет", "Цена за просмотр", "Страна", "Описание"],
+        columns: ["Название", {
+            dataField: "Жанр",
+            groupIndex: 0
+        },
+            "Дата выхода",
+            "Бюджет",
+            "Цена за просмотр",
+            "Страна",
+            "Описание"],
         showBorders: true
     });
 });
